@@ -6,5 +6,6 @@ export interface Just{
     precio : number;
     stock : number;
     imagen :string;
-    oferta : boolean
+    oferta : boolean;
+    cant : number;
 }

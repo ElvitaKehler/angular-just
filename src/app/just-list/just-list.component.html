@@ -6,16 +6,22 @@
             <th>Nombre:</th>
             <th>Tipo:</th>
             <th>Precio:</th>
-            <th>Stock:</th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor = "let Just of productosJust" [ngClass] = "{'oferta':Just.oferta}">
-            <td><img [src]= "Just.imagen" [alt]= "Just.nombre" > </td>
+            <td><img width = "130" [src]= "Just.imagen" [alt]= "Just.nombre" > </td>
             <td>{{Just.nombre}}</td>
             <td>{{Just.tipo}}</td>
             <td>{{Just.precio | currency}}</td>
-            <td><span class="badge badge-danger" *ngIf ="Just.stock ==0">SIN STOCK</span></td>
+            <td><span class="badge badge-danger" *ngIf ="Just.stock ==0">SIN STOCK</span>
+                <span class="badge badge-light" *ngIf ="Just.oferta ==true">OFERTA</span>
+            </td>
+            <td> <button class="btn btn-outline-dark btn-sm" (click) ="rmCant(Just)">-</button>  
+                <input type = "text" [(ngModel)]="Just.cant" (keyup)= "cambioCantidad($event,Just)">
+                <button class="btn btn-outline-dark btn-sm" (click) ="addCant(Just)">+</button></td>
 
         </tr>
        
