@@ -6,12 +6,18 @@ import { AppComponent } from './app.component';
 import { JustListComponent } from './just-list/just-list.component';
 import { JustFavoritosComponent } from './just-favoritos/just-favoritos.component';
 import { FormsModule } from '@angular/forms';
+import { JustContactComponent } from './just-contact/just-contact.component';
+import { JustComprasComponent } from './just-compras/just-compras.component';
+import { JustCarrComponent } from './just-carr/just-carr.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     JustListComponent,
-    JustFavoritosComponent
+    JustFavoritosComponent,
+    JustContactComponent,
+    JustComprasComponent,
+    JustCarrComponent
   ],
   imports: [
     BrowserModule,

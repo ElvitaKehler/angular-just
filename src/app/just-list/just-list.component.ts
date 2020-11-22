@@ -52,13 +52,11 @@ export class JustListComponent implements OnInit {
         just.cant--;
   }
 
-  cambioCantidad(event, just: Just): void{
+  cambioCantidad(event: any, just: Just): void{
     console.log(event);
     if(event.key>=0 && event.key<=9){
-      if(just.cant> 0 && just.stock>just.cant){
-      }
-         
-      }
+               
+      }else alert("No es un valor permitido");
   }
-  
+
 }
