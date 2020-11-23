@@ -43,20 +43,9 @@ export class JustListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addCant(just: Just): void{
-    if (just.stock>just.cant)
-        just.cant++;
+  maximoAlcanzado(mens : string){
+    alert(mens);
   }
-  rmCant(just: Just): void{
-    if (just.cant > 0)
-        just.cant--;
-  }
-
-  cambioCantidad(event: any, just: Just): void{
-    console.log(event);
-    if(event.key>=0 && event.key<=9){
-               
-      }else alert("No es un valor permitido");
-  }
+  
 
 }

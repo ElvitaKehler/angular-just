@@ -11,17 +11,15 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor = "let Just of productosJust" [ngClass] = "{'oferta':Just.oferta}">
-            <td><img width = "130" [src]= "Just.imagen" [alt]= "Just.nombre" > </td>
-            <td>{{Just.nombre}}</td>
-            <td>{{Just.tipo}}</td>
-            <td>{{Just.precio | currency}}</td>
-            <td><span class="badge badge-danger" *ngIf ="Just.stock ==0">SIN STOCK</span>
-                <span class="badge badge-light" *ngIf ="Just.oferta ==true">OFERTA</span>
+        <tr *ngFor = "let just of productosJust" [ngClass] = "{'oferta':just.oferta}">
+            <td><img width = "130" [src]= "just.imagen" [alt]= "just.nombre" > </td>
+            <td>{{just.nombre}}</td>
+            <td>{{just.tipo}}</td>
+            <td>{{just.precio | currency}}</td>
+            <td><span class="badge badge-danger" *ngIf ="just.stock ==0">SIN STOCK</span>
+                <span class="badge badge-light" *ngIf ="just.oferta ==true">OFERTA</span>
             </td>
-            <td> <button class="btn btn-outline-dark btn-sm" (click) ="rmCant(Just)">-</button>  
-                <input type = "text"  [(ngModel)]="Just.cant" (keyup)= "cambioCantidad($event,Just)">
-                <button class="btn btn-outline-dark btn-sm" (click) ="addCant(Just)">+</button></td>
+            <td> <app-input-integer [(cantidad)]="just.cant" [max]="just.stock" *ngIf = "just.stock" (maxAlcanzado)= "maximoAlcanzado($event)"></app-input-integer></td>
 
         </tr>
        
