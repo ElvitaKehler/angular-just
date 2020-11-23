@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JustCarroService } from '../just-carro.service';
 import { Just } from './Just';
 
 @Component({
@@ -37,14 +38,20 @@ export class JustListComponent implements OnInit {
     cant: 0,
   }
 ];
-
-  constructor() { }
+  
+  constructor(private carro: JustCarroService) {
+    
+   }
 
   ngOnInit(): void {
   }
 
   maximoAlcanzado(mens : string){
     alert(mens);
+  }
+
+  addCarro(just: Just):void{
+    this.carro.addCarro(just);
   }
   
 

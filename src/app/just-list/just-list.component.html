@@ -8,6 +8,7 @@
             <th>Precio:</th>
             <th></th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -20,7 +21,7 @@
                 <span class="badge badge-light" *ngIf ="just.oferta ==true">OFERTA</span>
             </td>
             <td> <app-input-integer [(cantidad)]="just.cant" [max]="just.stock" *ngIf = "just.stock" (maxAlcanzado)= "maximoAlcanzado($event)"></app-input-integer></td>
-
+            <td><button class= "btn" *ngIf ="just.stock !=0" (click)="addCarro(just)" >Comprar</button></td>
         </tr>
        
     </tbody>

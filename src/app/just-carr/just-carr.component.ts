@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JustCarroService } from '../just-carro.service';
 
 @Component({
   selector: 'app-just-carr',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JustCarrComponent implements OnInit {
 
-  constructor() { }
+  constructor(private carro: JustCarroService) { }
 
   ngOnInit(): void {
   }
