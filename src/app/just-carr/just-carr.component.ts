@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { JustCarroService } from '../just-carro.service';
+import { Just } from '../just-list/Just';
 
 @Component({
   selector: 'app-just-carr',
@@ -8,7 +10,11 @@ import { JustCarroService } from '../just-carro.service';
 })
 export class JustCarrComponent implements OnInit {
 
-  constructor(private carro: JustCarroService) { }
+  listaCarro$! : Observable <Just[]>;
+  
+  constructor(private carro: JustCarroService) { 
+    this.listaCarro$ = carro.listaCarro.asObservable();
+  }
 
   ngOnInit(): void {
   }

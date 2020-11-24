@@ -1,1 +1,8 @@
 <h1>Carro de compras</h1>
+
+<ul class="list-group">
+    <li class="list-group-item" *ngFor = "let just of listaCarro$ | async">
+        {{just.nombre}}: {{just.cant}}
+
+    </li>
+</ul>

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Just } from './just-list/Just';
 
 
@@ -7,21 +8,23 @@ import { Just } from './just-list/Just';
 })
 export class JustCarroService {
 
-  listaCarro : Just[] = [];
+  private _listaCarro: Just[] = [];
+  listaCarro : BehaviorSubject <Just[]> = new BehaviorSubject(this._listaCarro);
 
    constructor() { }
 
    addCarro(just: Just) {
 
-    let item : Just = this.listaCarro.find((v1) => v1.nombre == just.nombre);
+    let item : Just | undefined = this._listaCarro.find((v1) => v1.nombre == just.nombre);
      
-    if (!this.listaCarro.find((v1) => v1.nombre == just.nombre)){
-        this.listaCarro.push({... just});
+    if (!item ){
+      if (just.cant != 0)
+        this._listaCarro.push({... just});
     } else {
-
+        item.cant+= just.cant;
       
     } 
-    console.log(this.listaCarro);
+    this.listaCarro.next(this._listaCarro);
     
     
   }
